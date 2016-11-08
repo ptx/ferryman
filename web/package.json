@@ -1,0 +1,29 @@
+{
+  "name": "ferryman",
+  "version": "0.0.1",
+  "description": "Kuberenetes & LinkerD pipeline manager.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ptx/ferryman.git"
+  },
+  "author": "Jeffrey N. Davis",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/ptx/ferryman/issues"
+  },
+  "homepage": "https://github.com/ptx/ferryman#readme",
+  "dependencies": {
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "pg": "^6.1.0",
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2"
+  }
+}
