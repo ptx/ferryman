@@ -50,3 +50,26 @@ web/*.tgz
 # Yarn Integrity file
 web/.yarn-integrity
 
+*.class
+*.log
+
+# sbt specific
+app/.cache
+app/.history
+app/.lib/
+app/dist/*
+app/target/
+app/lib_managed/
+app/src_managed/
+app/project/boot/
+app/project/plugins/project/
+app/project/project/
+app/project/target/
+
+# Scala-IDE specific
+.scala_dependencies
+.worksheet
+
+# ENSIME specific
+.ensime_cache/
+.ensime
