@@ -16,6 +16,7 @@ all: clean browserify build docker
 browserify:
 	mkdir -p public/scripts/compiled
 	browserify -t [ babelify --presets [ react ] ] src/index/main.js -o public/scripts/compiled/index.js
+	browserify -t [ babelify --presets [ react ] ] src/status/main.js -o public/scripts/compiled/status.js
 
 build:
 	$(info Building Version --> $(VERSION), Docker Version --> $(DOCKER_VERSION))
@@ -33,5 +34,9 @@ dpush:
 	docker push ptx/ferryman:$(DOCKER_VERSION)
 
 # run the docker container locally
-runlocal:
+dlocal:
 	docker run --rm --name ferryman -p $(HTTP_PORT):$(HTTP_PORT) -e POSTGRES_HOST=$(POSTGRES_HOST) -e POSTGRES_PORT=$(POSTGRES_PORT) -e POSTGRES_DATABASE=$(POSTGRES_DATABASE) -e POSTGRES_USER=$(POSTGRES_USER) -e POSTGRES_PASSWD=$(POSTGRES_PASSWD) ptx/ferryman:$(DOCKER_VERSION)
+
+# run the project locally
+local:
+	export POSTGRES_HOST=$(POSTGRES_HOST); export POSTGRES_PORT=$(POSTGRES_PORT); export POSTGRES_DATABASE=$(POSTGRES_DATABASE); export POSTGRES_USER=$(POSTGRES_USER); export POSTGRES_PASSWD=$(POSTGRES_PASSWD); npm start

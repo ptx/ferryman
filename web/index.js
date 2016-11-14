@@ -14,17 +14,27 @@ app.use(Morgan('dev')); // development
 //  skip: function(req, res) { return res.statusCode < 400 };
 //}));
 
-app.get('/skeleton.json', function(req, res) {
+app.get('/status.json', function(req, res) {
   Postgres.selectVersion(function(err, result) {
     if(err) {
       console.error('error selecting database version', err);
       res.status(500);
       res.end();
     }
-    var version = {
-      version: result.rows[0].version
-    };
-    res.json(version).end();
+    Postgres.selectServerStartTimestamp(function(error, serverStartResult) {
+      if(err) {
+        console.error('error selecting database server start time', err);
+        res.status(500);
+        res.end();
+      }
+      var status = {
+        postgresql: {
+          version: result.rows[0].version,
+          start_timestamp: serverStartResult.rows[0].pg_postmaster_start_time
+        }
+      };
+      res.json(status).end();
+    });
   });
 });
 

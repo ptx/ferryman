@@ -30,4 +30,17 @@ klass.selectVersion = function(callback) {
   });
 };
 
+klass.selectServerStartTimestamp = function(callback) {
+  this.pool.connect(function(err, client, done) {
+    if(err) return console.error('error fetching client from pool', err);
+
+    const query = 'SELECT * FROM pg_postmaster_start_time();';
+
+    client.query(query, function(err, result) {
+      done();
+      callback(err, result);
+    });
+  });
+};
+
 module.exports = Postgresql;

@@ -17,13 +17,18 @@
   },
   "homepage": "https://github.com/ptx/ferryman#readme",
   "dependencies": {
-    "babel-preset-react": "^6.16.0",
-    "babelify": "^7.3.0",
-    "browserify": "^13.1.1",
+    "axios": "^0.15.2",
     "express": "^4.14.0",
     "morgan": "^1.7.0",
     "pg": "^6.1.0",
     "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "react-tabs": "^0.8.2",
+    "ssl-root-cas": "^1.2.3"
+  },
+  "devDependencies": {
+    "babel-preset-react": "^6.16.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.1.1"
   }
 }
